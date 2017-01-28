@@ -12,7 +12,7 @@ This is empty on purpose! Your code to build the resume will go here.
         "twitter": "@J_Barnum",
         "location": "Los Angeles"
     },
-    "bioPic": "images/fry.jpg",
+    "bioPic": "images/profile.jpg",
     "welcomeMessage": "What's up bro?",
     "skills": ["Humor", "awesomeness", "teaching", "JS"]
 };
@@ -20,10 +20,10 @@ This is empty on purpose! Your code to build the resume will go here.
 var work = {
     "jobs": [
         {
-            "title": "NOC Analyst II",
+            "title": "NOC Analyst II/Systems Administrator",
             "employer": "VectorUSA",
             "dates": "March 2016-Present",
-            "location": "Los Angeles, CA",
+            "location": ["Los Angeles, CA", "Oakland, CA"],
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
@@ -59,19 +59,19 @@ var projects = {
             "title": "XO Crew",
             "dates": "January 2014",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "images": "images/197x148.gif"
+            "images": "images/tic.png"
         },
         {
             "title": "Grub1Out",
             "dates": "Febuary 2015",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "images": "images/197x148.gif"
+            "images": "images/Grub_One_Out.png"
         },
         {
             "title": "TrailMix",
             "dates": "April 2015",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "images": "images/197x148.gif"
+            "images": "images/trailmix.png"
         }
     ]
 };
