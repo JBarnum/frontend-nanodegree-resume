@@ -22,16 +22,19 @@ var work = {
         {
             "title": "NOC Analyst II/Systems Administrator",
             "employer": "VectorUSA",
+            "workURL":"http://www.vectorusa.com",
+            "workLogo": "images/vector.png",
             "dates": "March 2016-Present",
             "location": ["Los Angeles, CA", "Oakland, CA"],
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
+            "description": "As a NOC Analyst I am responsible for monitoring multiple customer sites at any one time and providing general routine server routine maintenance tasks. With knowledge of TCP/IP and LAN/WAN’s I work to troubleshoot most problems effectively and with the utmost aptitude.<br>As a system administrator, I am responsible for making sure client networks and customers at client sites are up and running efficiently and effectively with as little down-time as possible. When down-time does occur, I use my abilities to effectively diagnose the problem and come up with a solution ASAP."},
         {
             "title": "Network Support Specialst",
             "employer": "Farmers & Merchants Bank",
+            "workURL":"http://www.fmb.com",
+            "workLogo": "images/fmb.png",
             "dates": "March 2009-Febuary 2015",
             "location": "Long Beach, CA",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            "description": "As a Network Services Support Associate, I am responsible for supporting the day-to-day operations of the Bank's Information Systems by resolving how-to questions, performing security resets and basic troubleshooting of system problems. Additionally, I set up, install and maintain printers, workstations, notebooks, and servers at the bank locations."
         }
     ]
 };
@@ -49,6 +52,9 @@ var education = {
         {
             "name": "Udacity",
             "course": "Front-End Development"
+        },
+        {   "name": "CodeAcademy",
+            "course": "JavaScript"
         }
     ]
 };
@@ -79,6 +85,8 @@ var projects = {
 function displayWork() {
 
 projects.display = function() {
+
+
     for (project in projects.projects) {
         $("#projects").append(HTMLprojectStart);
 
@@ -130,6 +138,9 @@ if(bio.skills.length > 0) {
 
         var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
         $(".work-entry:last").append(formattedDate);
+
+        var formattedWorkLogo = HTMLworkLogo.replace("%data%", work.jobs[job].workLogo);
+        $(".work-entry:last").prepend(formattedWorkLogo);
 
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formattedDescription);
