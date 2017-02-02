@@ -84,29 +84,35 @@ var projects = {
 
 function displayWork() {
 
-projects.display = function() {
+    projects.display = function() {
 
 
-    for (project in projects.projects) {
-        $("#projects").append(HTMLprojectStart);
+        for (project in projects.projects) {
+            $("#projects").append(HTMLprojectStart);
 
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-        console.log(projects.projects[project].title);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+            $(".project-entry:last").append(formattedTitle);
+            console.log(projects.projects[project].title);
 
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDates);
+            var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+            $(".project-entry:last").append(formattedDates);
 
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDescription);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+            $(".project-entry:last").append(formattedDescription);
 
-        if (projects.projects[project].images.length > 0){
-                for(image in projects.projects[project].images) {
-                    var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
-                }
-                $(".project-entry:last").append(formattedImage);
-        }
-    }
+            var formattedImage;
+            if (projects.projects[project].images.length > 0){
+                   for(image in projects.projects[project].images) {
+                        formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+                        }
+                    $(".project-entry:last").append(formattedImage);
+             }
+         }
+
+//start education display function here
+    education.display = function () {
+
+    };
 };
 
 projects.display();
@@ -160,7 +166,7 @@ $("#topContacts").prepend(formattedContact,
     formattedGit,
     formattedLocation
     );
-$("#main").append(internationalizeButton);
+// $("#main").append(internationalizeButton);
 
 function inName(name) {
     name = name.trim().split(" ");
@@ -186,7 +192,7 @@ function locationizer(work_obj) {
 }
 
 
-console.log(locationizer(work));
+// console.log(locationizer(work));
 
 }
 
