@@ -20,6 +20,7 @@ var HTMLmobile = '<li class="flex-item"><span class="orange-text"><i class="fa f
 var HTMLemail = '<li class="flex-item"><span class="orange-text"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="orange-text"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="orange-text"><i class="fa fa-github fa-2x" aria-hidden="true"></i> </span><span class="white-text">%data%</span></li>';
+var HTMLlinkedin = '<li class="flex-item"><span class="orange-text"><a href="%data%"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></span><span class="white-text"></span></li>'
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
 var HTMLlocation = '<li class="flex-item"><span class="orange-text"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> </span><span class="white-text">%data%</span></li>';
 

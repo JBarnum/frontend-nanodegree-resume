@@ -146,7 +146,7 @@ a, i {
 
 .flex-column {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
   padding: 10px;
 }
