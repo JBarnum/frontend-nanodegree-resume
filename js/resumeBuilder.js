@@ -83,7 +83,7 @@ var projects = {
 };
 
 function displayWork() {
-
+    $(".fa").parent("a").css("text-decoration","none");
     projects.display = function() {
 
 
