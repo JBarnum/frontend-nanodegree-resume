@@ -67,7 +67,7 @@ h5 {
   font-size: 14px;
   color: #999;
   line-height: 16px;
-  float: left;
+ /* float: left;*/
 }
 
 .location-text {
@@ -86,9 +86,25 @@ p {
 }
 
 a, i {
-  color: #1199c3;
+  color: #3498db;
   text-decoration: none;
-  /*margin-top: 10px;*/
+  margin-top: 10px;
+  /*display: block;*/
+}
+
+.project-images {
+    max-width: 100%;
+}
+
+.work-link {
+  display: block;
+}
+
+.workpic {
+  display: block;
+}
+
+.flex-box {
   display: block;
 }
 

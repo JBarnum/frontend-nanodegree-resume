@@ -1,18 +1,18 @@
 
- var bio = {
+var bio = {
     "name": "Jeryl Barnum",
     "role": "Front-End Web Developer EXTRAORDINARE!",
     "contacts": {
-        "email": "jeryl.barnum@gmail.com",
+        "email": "mailto:jeryl.barnum@gmail.com?Subject=Hi There!",
         "mobile": "562-826-2655",
-        "github": "JBarnum",
+        "github": "https://github.com/JBarnum",
         "linkedin": "https://www.linkedin.com/in/jbarnum",
-        "twitter": "@J_Barnum",
-        "location": "Los Angeles"
+        "twitter": "https://twitter.com/J_BARNUM",
+        "location": "Los Angeles, CA"
     },
     "bioPic": "images/profile.jpg",
     "welcomeMessage": "What's up bro?",
-    "skills": ["Humor", "Awesomeness", "JavaScript", "CSS", "HTML5", "TESTING"]
+    "skills": ["Humor", "Awesomeness", "JavaScript", "CSS", "HTML5", "AllThingsGoogle", "AngularJS", "NodeJS", "jQuery"]
 };
 
 var work = {
@@ -43,7 +43,13 @@ var education = {
         "name": "CSULB",
         "city": "Long Beach, CA",
         "degree": "B.S. Finance & Management Information Systems",
-        "minors": "N/A"
+        "dates": "2005-2010"
+    },
+    {
+        "name": "Polytechnic HS",
+        "city": "Long Beach, CA",
+        "degree": "My High School Diploma!",
+        "dates": "Graduation 2005"
     }
     ],
     "onlineCourses": [
@@ -85,8 +91,16 @@ var projects = {
     ]
 };
 
-displayWork();
-function displayWork() {
+
+var courses = education.onlineCourses.map(function(x){
+    return x.name + " " + x.course;
+});
+console.log(courses);
+
+
+
+displaySite();
+function displaySite() {
 
     projects.display = function() {
 
@@ -95,7 +109,6 @@ function displayWork() {
 
             var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
             $(".project-entry:last").append(formattedTitle);
-            console.log(projects.projects[project].title);
 
             var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
             $(".project-entry:last").append(formattedDates);
@@ -117,76 +130,92 @@ function displayWork() {
 //start education display function here
     education.display = function () {
 
+
+        var formattedSchoolName;
+        var formattedSchoolDegree;
+        var formattedSchoolDates;
+
+
+        for(var i = 0; i < education.schools.length; i++) {
+            $("#education").append(HTMLschoolStart);
+            formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
+            formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+            var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegree;
+            $(".education-entry:last").append(formattedSchoolEntry);
+            formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+            $(".education-entry:last").append(formattedSchoolDates);
+
+            console.log(education.schools[i].name);
+        }
+
+
     };
-};
 
-projects.display();
+    education.display();
 
-var name = HTMLheaderName.replace("%data%", bio.name);
-$("#header").prepend(name);
+    bio.display = function () {
+    var name = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(name);
 
-if(bio.skills.length > 0) {
+    var formattedContact = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedPhone = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+    $("#header").prepend(formattedPic);
+    $("#topContacts").prepend(formattedContact,
+        formattedPhone,
+        formattedTwitter,
+        formattedGit,
+        formattedLinkedin,
+        formattedLocation
+    );
+
+    var formattedSkill;
+
+    //Loop through bio.skills object and display it instead of repeating your code
     $("#header").append(HTMLskillsStart);
+    for (var i = 0; i < bio.skills.length; i++) {
 
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    console.log(bio.skills[0]);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
 
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[5]);
-    $("#skills").append(formattedSkill);
+        $("#skills").append(formattedSkill);
+        }
+    };
 
-    for(job in work.jobs) {
-        $("#workExperience").append(HTMLworkStart);
+    work.display = function () {
 
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+    //Display Work loop
+    for(var i = 0; i < work.jobs.length; i++) {
+
+    $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
         var formattedEmployerTitle = formattedEmployer + " " + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
 
-        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].dates);
         $(".work-entry:last").append(formattedDate);
 
-        var formattedWorkLogo = HTMLworkLogo.replace("%data%", work.jobs[job].workLogo);
+        var formattedWorkLogo = HTMLworkLogo.replace("%data%", work.jobs[i].workLogo);
         $(".work-entry:last").prepend(formattedWorkLogo);
 
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
         $(".work-entry:last").append(formattedDescription);
-    }
 
-var formattedContact = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedPhone = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+        }
+    };
 
-$("#header").prepend(formattedPic);
-$("#topContacts").prepend(formattedContact,
-    formattedPhone,
-    formattedTwitter,
-    formattedGit,
-    formattedLinkedin,
-    formattedLocation
-    );
-// $("#main").append(internationalizeButton);
+    projects.display();
+    bio.display();
+    work.display();
+};
 
-// function inName(name) {
-//     name = name.trim().split(" ");
-//     name[1] = name[1].toUpperCase();
-//     name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
 
-//     return name[0] + " " + name[1];
-//         }
-}
 
 $("#mapDiv").append(googleMap);
 
@@ -205,16 +234,20 @@ function locationizer(work_obj) {
 
 // console.log(locationizer(work));
 
+// $("#main").append(internationalizeButton);
+
+// function inName(name) {
+//     name = name.trim().split(" ");
+//     name[1] = name[1].toUpperCase();
+//     name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
+
+//     return name[0] + " " + name[1];
+//         }
 
 
+// $(document).click(function(loc) {
+//     var x = loc.pageX;
+//     var y = loc.pageY;
 
-
-
-
-
-$(document).click(function(loc) {
-    var x = loc.pageX;
-    var y = loc.pageY;
-
-    logClicks(x, y);
-});
+//     logClicks(x, y);
+// });
