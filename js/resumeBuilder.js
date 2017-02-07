@@ -94,14 +94,8 @@ var projects = {
 };
 
 
-var courses = education.onlineCourses.map(function(x){
-    return x.name + " " + x.course;
-});
-console.log(courses);
-
-
-
 displaySite();
+//displays site
 function displaySite() {
 
     projects.display = function() {
@@ -139,13 +133,26 @@ function displaySite() {
             formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
             formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
             formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
+
             var formattedSchoolEntry = formattedSchoolName + formattedSchoolDegree + formattedSchoolMajor;
             $(".education-entry:last").append(formattedSchoolEntry);
+
             formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             $(".education-entry:last").append(formattedSchoolDates);
 
-            console.log(education.schools[i].name);
         }
+
+        $("#education").append(HTMLonlineStart);
+
+
+        //using a different function instead of for loops--got bored with for loops
+        // var courses = education.onlineCourses.map(function(x){
+
+        //     console.log(x.name + "--" + x.course);
+
+        //     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", x.name);
+        //     $(".online-entry:last").append(formattedOnlineTitle);
+        // });
 
 
     };
