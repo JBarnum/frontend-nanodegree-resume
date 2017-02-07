@@ -60,7 +60,17 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
+var toolTipString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Long Beach, CA</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>the LBC</b>, also referred to as <b>Snoop Dogg\'s Hometown</b>, Long Beach, CA is a large and diverse city, filled with people from all walks of life.' + ' I\'ve also worked in Los Angeles and Oakland throughout my career.' +
+            '</p>'+
+            '<p>Credit: Uluru, <a href="https://en.wikipedia.org/wiki/Long_Beach,_California</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
 
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
@@ -179,13 +189,17 @@ function initializeMap() {
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
+
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: toolTipString
     });
+
+    // var infowindow = new google.maps.InfoWindow();
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.

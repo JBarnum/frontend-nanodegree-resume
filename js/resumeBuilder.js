@@ -95,9 +95,11 @@ var projects = {
 
 
 displaySite();
-//displays site
+
+//function that displays site
 function displaySite() {
 
+    //create a projects display property
     projects.display = function() {
 
             for(var i = 0; i < projects.projects.length; i++) {
@@ -119,9 +121,8 @@ function displaySite() {
             }
     };
 
-//start education display function here
+    //start education display property function here
     education.display = function () {
-
 
         var formattedSchoolName;
         var formattedSchoolDegree;
@@ -142,23 +143,28 @@ function displaySite() {
 
         }
 
-        $("#education").append(HTMLonlineStart);
+        // $("#education").append(HTMLonlineClasses);
+
+        // for(var i = 0; i < education.onlineCourses.length; i++) {
+        //     console.log(education.onlineCourses[i].name);
+        //     formattedOnlineName = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].name);
+        //     $(".education-entry:last").append(formattedOnlineName);
+        // }
+        // console.log(HTMLonlineStart);
 
 
-        //using a different function instead of for loops--got bored with for loops
+        // using a different function instead of for loops--got bored with for loops
         // var courses = education.onlineCourses.map(function(x){
 
         //     console.log(x.name + "--" + x.course);
 
         //     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", x.name);
-        //     $(".online-entry:last").append(formattedOnlineTitle);
+        //     $(".education-entry").append(formattedOnlineTitle);
         // });
-
 
     };
 
-    education.display();
-
+    //bio display property
     bio.display = function () {
         var name = HTMLheaderName.replace("%data%", bio.name);
         $("#header").prepend(name);
@@ -192,12 +198,11 @@ function displaySite() {
         }
     };
 
+    //work display property
     work.display = function () {
-
     //Display Work loop
     for(var i = 0; i < work.jobs.length; i++) {
-
-    $("#workExperience").append(HTMLworkStart);
+        $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
         var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
@@ -220,41 +225,7 @@ function displaySite() {
     projects.display();
     bio.display();
     work.display();
+    education.display();
 };
 
-
-
 $("#mapDiv").append(googleMap);
-
-//location function of places I have worked
-function locationizer(work_obj) {
-    var locationArray = [];
-
-    for (job in work_obj.jobs) {
-        var newLocation = work_obj.jobs[job].location;
-        locationArray.push(newLocation);
-    }
-
-    return locationArray;
-}
-
-
-// console.log(locationizer(work));
-
-// $("#main").append(internationalizeButton);
-
-// function inName(name) {
-//     name = name.trim().split(" ");
-//     name[1] = name[1].toUpperCase();
-//     name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-//     return name[0] + " " + name[1];
-//         }
-
-
-// $(document).click(function(loc) {
-//     var x = loc.pageX;
-//     var y = loc.pageY;
-
-//     logClicks(x, y);
-// });

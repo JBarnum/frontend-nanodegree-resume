@@ -25,6 +25,10 @@ h6 {
   padding: 0 5%;
 }
 
+.online-entry {
+  display: inline;
+}
+
 h1 {
   font-size: 40px;
   color: #2ecc71;
