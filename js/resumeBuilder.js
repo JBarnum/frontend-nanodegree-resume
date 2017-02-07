@@ -1,4 +1,3 @@
-
 var bio = {
     "name": "Jeryl Barnum",
     "role": "Front-End Web Developer EXTRAORDINARE!",
@@ -16,19 +15,19 @@ var bio = {
 };
 
 var work = {
-    "jobs": [
-        {
+    "jobs": [{
             "title": "NOC Analyst II/Systems Administrator",
             "employer": "VectorUSA",
-            "workURL":"http://www.vectorusa.com",
+            "workURL": "http://www.vectorusa.com",
             "workLogo": "images/vector.png",
             "dates": "March 2016-Present",
             "location": ["Los Angeles, CA", "Oakland, CA"],
-            "description": "As a NOC Analyst I am responsible for monitoring multiple customer sites at any one time and providing general routine server routine maintenance tasks. With knowledge of TCP/IP and LAN/WAN’s I work to troubleshoot most problems effectively and with the utmost aptitude.<br>As a system administrator, I am responsible for making sure client networks and customers at client sites are up and running efficiently and effectively with as little down-time as possible. When down-time does occur, I use my abilities to effectively diagnose the problem and come up with a solution ASAP."},
+            "description": "As a NOC Analyst I am responsible for monitoring multiple customer sites at any one time and providing general routine server routine maintenance tasks. With knowledge of TCP/IP and LAN/WAN’s I work to troubleshoot most problems effectively and with the utmost aptitude.<br>As a system administrator, I am responsible for making sure client networks and customers at client sites are up and running efficiently and effectively with as little down-time as possible. When down-time does occur, I use my abilities to effectively diagnose the problem and come up with a solution ASAP."
+        },
         {
             "title": "Network Support Specialst",
             "employer": "Farmers & Merchants Bank",
-            "workURL":"http://www.fmb.com",
+            "workURL": "http://www.fmb.com",
             "workLogo": "images/fmb.png",
             "dates": "March 2009-Febuary 2015",
             "location": "Long Beach, CA",
@@ -38,24 +37,22 @@ var work = {
 };
 
 var education = {
-    "schools": [
-    {
-        "name": "CSULB",
-        "city": "Long Beach, CA",
-        "degree": "Bachelor of Science",
-        "major": "Management Information Systems & Finance/Investments",
-        "dates": "2005-2010"
-    },
-    {
-        "name": "Polytechnic HS",
-        "city": "Long Beach, CA",
-        "degree": "You Don't Major in High School",
-        "major": "AP Classes",
-        "dates": "Graduation -- 2005"
-    }
-    ],
-    "onlineCourses": [
+    "schools": [{
+            "name": "CSULB",
+            "city": "Long Beach, CA",
+            "degree": "Bachelor of Science",
+            "major": "Management Information Systems & Finance/Investments",
+            "dates": "2005-2010"
+        },
         {
+            "name": "Polytechnic HS",
+            "city": "Long Beach, CA",
+            "degree": "You Don't Major in High School",
+            "major": "AP Classes",
+            "dates": "Graduation -- 2005"
+        }
+    ],
+    "onlineCourses": [{
             "name": "Udacity",
             "course": "Front-End Development"
         },
@@ -71,8 +68,7 @@ var education = {
 };
 
 var projects = {
-    "projects": [
-        {
+    "projects": [{
             "title": "XO Crew",
             "dates": "January 2014",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -102,34 +98,34 @@ function displaySite() {
     //create a projects display property
     projects.display = function() {
 
-            for(var i = 0; i < projects.projects.length; i++) {
-                console.log(projects.projects[i].title);
-                $("#projects").append(HTMLprojectStart);
+        for (var i = 0; i < projects.projects.length; i++) {
+            console.log(projects.projects[i].title);
+            $("#projects").append(HTMLprojectStart);
 
-                var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-                $(".project-entry:last").append(formattedTitle);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+            $(".project-entry:last").append(formattedTitle);
 
-                var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
-                $(".project-entry:last").append(formattedDates);
+            var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+            $(".project-entry:last").append(formattedDates);
 
-                var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
-                $(".project-entry:last").append(formattedDescription);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+            $(".project-entry:last").append(formattedDescription);
 
-                var formattedImage;
-                formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
-                $(".project-entry:last").append(formattedImage);
-            }
+            var formattedImage;
+            formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
+            $(".project-entry:last").append(formattedImage);
+        }
     };
 
     //start education display property function here
-    education.display = function () {
+    education.display = function() {
 
         var formattedSchoolName;
         var formattedSchoolDegree;
         var formattedSchoolDates;
 
 
-        for(var i = 0; i < education.schools.length; i++) {
+        for (var i = 0; i < education.schools.length; i++) {
             $("#education").append(HTMLschoolStart);
             formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
             formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
@@ -165,7 +161,7 @@ function displaySite() {
     };
 
     //bio display property
-    bio.display = function () {
+    bio.display = function() {
         var name = HTMLheaderName.replace("%data%", bio.name);
         $("#header").prepend(name);
 
@@ -186,38 +182,38 @@ function displaySite() {
             formattedLocation
         );
 
-    var formattedSkill;
+        var formattedSkill;
 
-    //Loop through bio.skills object and display it instead of repeating your code
-    $("#header").append(HTMLskillsStart);
-    for (var i = 0; i < bio.skills.length; i++) {
+        //Loop through bio.skills object and display it instead of repeating your code
+        $("#header").append(HTMLskillsStart);
+        for (var i = 0; i < bio.skills.length; i++) {
 
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+            formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
 
-        $("#skills").append(formattedSkill);
+            $("#skills").append(formattedSkill);
         }
     };
 
     //work display property
-    work.display = function () {
-    //Display Work loop
-    for(var i = 0; i < work.jobs.length; i++) {
-        $("#workExperience").append(HTMLworkStart);
+    work.display = function() {
+        //Display Work loop
+        for (var i = 0; i < work.jobs.length; i++) {
+            $("#workExperience").append(HTMLworkStart);
 
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-        var formattedEmployerTitle = formattedEmployer + " " + formattedTitle;
-        var formattedWorkURL = HTMLworkEmployer.replace("%info%");
-        $(".work-entry:last").append(formattedEmployerTitle);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+            var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+            var formattedEmployerTitle = formattedEmployer + " " + formattedTitle;
+            var formattedWorkURL = HTMLworkEmployer.replace("%info%");
+            $(".work-entry:last").append(formattedEmployerTitle);
 
-        var formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].dates);
-        $(".work-entry:last").append(formattedDate);
+            var formattedDate = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+            $(".work-entry:last").append(formattedDate);
 
-        var formattedWorkLogo = HTMLworkLogo.replace("%data%", work.jobs[i].workLogo);
-        $(".work-entry:last").prepend(formattedWorkLogo);
+            var formattedWorkLogo = HTMLworkLogo.replace("%data%", work.jobs[i].workLogo);
+            $(".work-entry:last").prepend(formattedWorkLogo);
 
-        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-        $(".work-entry:last").append(formattedDescription);
+            var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+            $(".work-entry:last").append(formattedDescription);
 
         }
     };
@@ -226,6 +222,6 @@ function displaySite() {
     bio.display();
     work.display();
     education.display();
-};
+}
 
 $("#mapDiv").append(googleMap);
