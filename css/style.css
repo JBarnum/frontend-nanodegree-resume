@@ -14,6 +14,9 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+#role {
+  color: white;
+}
 .clear-fix {
   overflow: auto;
 }
@@ -25,9 +28,9 @@ h6 {
   padding: 0 5%;
 }
 
-.online-entry {
+/*.online-entry {
   display: inline;
-}
+}*/
 
 h1 {
   font-size: 40px;
@@ -116,7 +119,7 @@ a, i {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: rgb(211, 185, 223);
   line-height: 28px;
 }
 

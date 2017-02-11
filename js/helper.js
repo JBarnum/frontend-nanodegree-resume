@@ -1,14 +1,14 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr>';
+var HTMLheaderRole = '<span id="role">%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text"><i class="fa fa-mobile fa-3x" aria-hidden="true"></i> </span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="orange-text"><i class="fa fa-mobile fa-3x" aria-hidden="true"></i> </span><span class="white-text contact">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><a href="%data%"><i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i></a></li>';
 var HTMLtwitter = '<li class="flex-item"><a href="%data%"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a></li>';
 var HTMLgithub = '<li class="flex-item"><a href="%data%"><i class="fa fa-github fa-3x" aria-hidden="true"></i></a></li>';
 var HTMLlinkedin = '<li class="flex-item"><span class="orange-text"><a href="%data%"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a></span><span class="white-text"></span></li>';
 var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text"><i class="fa fa-map-marker fa-3x" aria-hidden="true"></i> </span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text"><i class="fa fa-map-marker fa-3x" aria-hidden="true"></i> </span><span class="white-text contact">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
@@ -38,7 +38,6 @@ var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
 var HTMLonlineStart = '<div class="online-entry"></div>';
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
