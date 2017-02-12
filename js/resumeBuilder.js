@@ -1,6 +1,7 @@
 //data variable represents the string "%data%" so it's easier to write code later
 var data = "%data%";
 
+//four variable objects--bio, education, work, projects
 var bio = {
     "name": "Jeryl Barnum",
     "role": "Front-End Web Developer EXTRAORDINARE!",
@@ -106,14 +107,15 @@ displaySite();
 //function that displays site
 function displaySite() {
 
-        bio.display = function() {
-            //reference '%data%' string and put it in a variable
+    bio.display = function() {
+            //appends name, role, and msg to site.
             var name = HTMLheaderName.replace(data, bio.name);
             var role = HTMLheaderRole.replace(data, bio.role);
             var msg = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
             $("#header").prepend(name, role);
             $("#header").append(msg);
 
+            //create variables for Contacts and biopic
             var formattedContact = HTMLemail.replace(data, bio.contacts.email);
             var formattedPhone = HTMLmobile.replace(data, bio.contacts.mobile);
             var formattedTwitter = HTMLtwitter.replace(data, bio.contacts.twitter);
@@ -123,20 +125,22 @@ function displaySite() {
             var formattedLocation = HTMLlocation.replace(data, bio.contacts.location);
 
             $("#header").prepend(formattedPic);
+
+            //couldn't figure out why combining #topContacts & #footerContacts in one statement didn't work??
             $("#topContacts").prepend(formattedContact,
-            formattedPhone,
-            formattedTwitter,
-            formattedGit,
-            formattedLinkedin,
-            formattedLocation
+                formattedPhone,
+                formattedTwitter,
+                formattedGit,
+                formattedLinkedin,
+                formattedLocation
             );
             $("#footerContacts").append(
-            formattedContact,
-            formattedPhone,
-            formattedTwitter,
-            formattedGit,
-            formattedLinkedin,
-            formattedLocation
+                formattedContact,
+                formattedPhone,
+                formattedTwitter,
+                formattedGit,
+                formattedLinkedin,
+                formattedLocation
             );
 
             var formattedSkill;
@@ -151,7 +155,7 @@ function displaySite() {
         }
     };
 
-        work.display = function() {
+    work.display = function() {
         //Display Work loop
         for (var i = 0; i < work.jobs.length; i++) {
             $("#workExperience").append(HTMLworkStart);
@@ -179,6 +183,7 @@ function displaySite() {
         var formattedSchoolDegree;
         var formattedSchoolDates;
 
+        //for loop to display education function
         for (var i = 0; i < education.schools.length; i++) {
             $("#education").append(HTMLschoolStart);
             formattedSchoolName = HTMLschoolName.replace(data, education.schools[i].name);
@@ -193,24 +198,25 @@ function displaySite() {
 
         }
 
+        /*DO I HAVE TO USE A FOR LOOP? I got bored? See MAP Function below:
+            my for loop works by the way :-)
+        */
+        // for(var i = 0; i < education.onlineCourses.length; i++) {
+        //     formattedOnlineName = HTMLonlineTitle.replace(data, education.onlineCourses[i].title);
+        //     $("#onlinecourses").append(HTMLonlineStart);
+        //     $(".online-entry:last").append(formattedOnlineName);
+        // }
+
+        // using a different iteration method (MAP!!) instead of for loops--got bored with for loops
+        //displays online courses I took
+        var courses = education.onlineCourses.map(function(x){
             $("#onlinecourses").append(HTMLonlineStart);
 
-        for(var i = 0; i < education.onlineCourses.length; i++) {
-            console.log(education.onlineCourses[i].title);
-            formattedOnlineName = HTMLonlineTitle.replace(data, education.onlineCourses[i].title);
-            $(".online-entry:last").append(formattedOnlineName);
-        }
-        // console.log(HTMLonlineStart);
-
-
-        // using a different function instead of for loops--got bored with for loops
-        // var courses = education.onlineCourses.map(function(x){
-
-        //     console.log(x.name + "--" + x.course);
-
-        //     var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", x.name);
-        //     $(".education-entry").append(formattedOnlineTitle);
-        // });
+            var formattedOnlineTitle = HTMLonlineTitle.replace(data, x.title);
+            $(".online-entry:last").append(formattedOnlineTitle);
+            var formattedOnlineSchool = HTMLonlineSchool.replace(data, x.school);
+            $(".online-entry:last").append(formattedOnlineSchool);
+        });
 
     };
 
