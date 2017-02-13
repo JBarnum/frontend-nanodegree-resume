@@ -153,11 +153,11 @@ function displaySite() {
         //Display Work loop
         for (var i = 0; i < work.jobs.length; i++) {
             $("#workExperience").append(HTMLworkStart);
-
-            var formattedEmployer = HTMLworkEmployer.replace(data, work.jobs[i].employer);
+            //double .replace to replace url link for employer and name!
+            var formattedEmployer = HTMLworkEmployer.replace(data, work.jobs[i].employer).replace("%info%", work.jobs[i].workURL);
             var formattedTitle = HTMLworkTitle.replace(data, work.jobs[i].title);
             var formattedEmployerTitle = formattedEmployer + " " + formattedTitle;
-            var formattedWorkURL = HTMLworkEmployer.replace("%info%");
+            var formattedWorkURL = HTMLworkEmployer.replace("%info%", work.jobs[i].workURL);
             $(".work-entry:last").append(formattedEmployerTitle);
 
             var formattedDate = HTMLworkDates.replace(data, work.jobs[i].dates);
@@ -181,7 +181,8 @@ function displaySite() {
         //for loop to display education function
         for (var i = 0; i < education.schools.length; i++) {
             $("#education").append(HTMLschoolStart);
-            formattedSchoolName = HTMLschoolName.replace(data, education.schools[i].name);
+            //replace # with url so when you click school name, it takes you to school website
+            formattedSchoolName = HTMLschoolName.replace(data, education.schools[i].name).replace("#", education.schools[i].url);
             formattedSchoolDegree = HTMLschoolDegree.replace(data, education.schools[i].degree);
             formattedSchoolMajor = HTMLschoolMajor.replace(data, education.schools[i].majors);
 
