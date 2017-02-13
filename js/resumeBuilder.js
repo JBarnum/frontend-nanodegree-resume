@@ -107,6 +107,7 @@ displaySite();
 //function that displays site
 function displaySite() {
 
+    //displays biography info on site
     bio.display = function() {
             //appends name, role, and msg to site.
             var name = HTMLheaderName.replace(data, bio.name);
@@ -126,16 +127,8 @@ function displaySite() {
 
             $("#header").prepend(formattedPic);
 
-            //couldn't figure out why combining #topContacts & #footerContacts in one statement didn't work??
-            $("#topContacts").prepend(formattedContact,
-                formattedPhone,
-                formattedTwitter,
-                formattedGit,
-                formattedLinkedin,
-                formattedLocation
-            );
-            $("#footerContacts").append(
-                formattedContact,
+            //Since it's using the same contacts jQuery let's you apply to multiple tagged elements
+            $("#topContacts, #footerContacts").append(formattedContact,
                 formattedPhone,
                 formattedTwitter,
                 formattedGit,
@@ -149,12 +142,13 @@ function displaySite() {
             $("#header").append(HTMLskillsStart);
             for (var i = 0; i < bio.skills.length; i++) {
 
-            formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+                formattedSkill = HTMLskills.replace(data, bio.skills[i]);
 
-            $("#skills").append(formattedSkill);
-        }
+                $("#skills").append(formattedSkill);
+            }
     };
 
+    //displays work history on site
     work.display = function() {
         //Display Work loop
         for (var i = 0; i < work.jobs.length; i++) {
@@ -177,6 +171,7 @@ function displaySite() {
         }
     };
 
+    //display education on page
     education.display = function() {
 
         var formattedSchoolName;
@@ -220,6 +215,7 @@ function displaySite() {
 
     };
 
+    //display projects on page function
        projects.display = function() {
         for (var i = 0; i < projects.projects.length; i++) {
             $("#projects").append(HTMLprojectStart);
@@ -233,10 +229,14 @@ function displaySite() {
             var formattedDescription = HTMLprojectDescription.replace(data, projects.projects[i].description);
             $(".project-entry:last").append(formattedDescription);
 
-            var formattedImage;
-            formattedImage = HTMLprojectImage.replace(data, projects.projects[i].images);
-            $(".project-entry:last").append(formattedImage);
+            for(var j = 0; j <projects.projects[i].images.length; j++) {
+                //for loop that iterates through images array.
+                console.log(projects.projects[i].images[j]);
+                var formattedProjectImage = HTMLprojectImage.replace(data, projects.projects[i].images[j]);
+                $(".project-entry:last").append(formattedProjectImage);
+            }
         }
+
     };
 
     projects.display();
